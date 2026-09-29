@@ -7,17 +7,6 @@ import java.io.Console;
 private    String name;
 private    int weight, height;
 
-
-//constructor
-
-    public Person(String name, int weight, int height){
-
-        this.name=name;
-        this.weight=weight;
-        this.height=height;
-
-    }
-
 //getters y setters
 
 public String getName(){
@@ -67,52 +56,37 @@ public void setHeight(int height){
 public class Pesos {
     public static void main(String[] args) throws Exception {
         
+
     Console c = System.console();        
 
         if(c==null){
 
-            System.out.printf("No hay una consola disponible");
+            System.err.println("No console.");
             return;
         }
+    
+       Person p1=new Person();
 
+       try{
+        p1.setName(c.readLine("Ingrese su nombre: "));
 
+       }catch(Exception e){
+        System.out.println("Error al ingresar el nombre");
+       }
 
+       try{
+        p1.setWeight(Integer.parseInt(c.readLine("Ingrese su peso: ")));
+       }catch(Exception e){
+        System.out.println("Error al ingresar el peso");
+       }
 
-        try{
-        name1 = c.readLine("Introduzca el nombre de la persona 1:");
-        
-        
-        }catch(Exception e){
-            System.out.println("Error al leer el nombre de la persona 1: " + e.getMessage());
-        }
+       try{
+        p1.setHeight(Integer.parseInt(c.readLine("Ingrese su altura: ")));
+       }catch(Exception e){
+        System.out.println("Error al ingresar la altura");
+       }
 
-
-
-
-        try{
-
-        weight1=Integer.parseInt(c.readLine("Introduzca el peso de la persona 1:"));
-
-        }catch(Exception e){
-            System.out.println("Error al leer el peso de la persona 1: " + e.getMessage());
-        }
-
-
-
-
-        try{
-
-        height1=Integer.parseInt(c.readLine("Introduzca la altura de la persona 1:"));
-        
-        }catch(Exception e){
-            System.out.println("Error al leer la altura de la persona 1: " + e.getMessage());
-        }
-
-        
-        person1= new Person(name1, weight1, height1);
-        
-
-
+       try{}
 
     }
 }
